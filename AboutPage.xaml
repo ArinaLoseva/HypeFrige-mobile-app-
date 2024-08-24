@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.AboutPage"
+             xmlns:vm="clr-namespace:App1.ViewModels"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="False">
+    
+        <ContentPage.Content>
+        
+        <StackLayout BackgroundColor="#D3E4BF" Margin="0">
+
+        <StackLayout Orientation="Horizontal" Margin="-3">
+            <Label Text="HypeFridge" TextColor="#375C09" FontSize="16" FontFamily="Jost" FontAttributes="Bold" Margin="30, 20, 0, 10"></Label>
+            <Image x:Name="accountImage" Source="https://i.ibb.co/qyJ7zrt/account.png" WidthRequest="35" HeightRequest="35" Margin="210, 13, 0, 8">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AccountClicked}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+
+        <Frame x:Name="foodFrame" BackgroundColor="#FFFFFF" Margin="15, 0, 15, 5" CornerRadius="20" WidthRequest="330" HeightRequest="190">
+            <StackLayout>
+                <Label Text="Продукты" TextColor="#000000" FontSize="14" FontFamily="Jost"></Label>
+
+                <ScrollView Orientation="Vertical" Margin="0">
+                    <StackLayout Orientation="Vertical" Padding="0">
+                        <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+
+                        <StackLayout Padding="0" Margin="0" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                <Label x:Name="foodNameLabel1" Text="Молоко 2,5%" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                <Label x:Name="foodDateLabel1" Text="12.05.2024" TextColor="#FF0000" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                <Label x:Name="foodNameLabel2" Text="Тесто слоенное бездрожевое" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                <Label x:Name="foodDateLabel2" Text="14.05.2024" TextColor="#FF6107" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                <Label x:Name="foodNameLabel3" Text="Чебупели" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                <Label x:Name="foodDateLabel3" Text="18.05.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                <Label x:Name="foodNameLabel4" Text="Сыр с плесенью" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                <Label x:Name="foodDateLabel4" Text="18.05.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                        </StackLayout>
+
+                        <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                <Label x:Name="foodNameLabel5" Text="Айран с зеленью" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                <Label x:Name="foodDateLabel5" Text="18.05.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                        </StackLayout>
+
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Frame>
+
+        <Frame x:Name="recipeFrame" BackgroundColor="#FFFFFF" Margin="15, 0, 15, 5" CornerRadius="20" WidthRequest="330" HeightRequest="190">
+            <StackLayout>
+                <Label Text="Рецепты" TextColor="#000000" FontSize="14" FontFamily="Jost"></Label>
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal">
+
+                        <Frame CornerRadius="10" Padding="0" BackgroundColor="#EBF3E1" Margin="0, 5, 5, 5" WidthRequest="190" HeightRequest="150">
+                            <StackLayout Orientation="Vertical" Background="#EBF3E1" Margin="0">
+                                <Image x:Name="foodImage1" Source="https://i.ibb.co/wyQ3n1G/rec-img1.png" WidthRequest="190" HeightRequest="110" Margin="0"></Image>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Лимонный пирог" TextColor="#000000" FontSize="14" FontFamily="Jost" Margin="10, 0, 0, 0"></Label>
+                                    <Label Text="20 мин" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="0, 0, 10, 0" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10" Padding="0" BackgroundColor="#EBF3E1" Margin="0, 5, 5, 5" WidthRequest="190" HeightRequest="150">
+                            <StackLayout Orientation="Vertical" Background="#EBF3E1" Margin="0">
+                                    <Image x:Name="foodImage2" Source="https://i.ibb.co/yyGDcGx/image.jpg" WidthRequest="190" HeightRequest="110" Margin="0"></Image>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Луковый угар" TextColor="#000000" FontSize="14" FontFamily="Jost" Margin="10, 0"></Label>
+                                    <Label Text="40 мин" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="0, 0, 10, 0" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="10" Padding="0" BackgroundColor="#EBF3E1" Margin="0, 5, 5, 5" WidthRequest="190" HeightRequest="150">
+                            <StackLayout Orientation="Vertical" Background="#EBF3E1" Margin="0">
+                                    <Image x:Name="foodImage3" Source="https://i.ibb.co/bm5KT3z/image.jpg" WidthRequest="190" HeightRequest="110" Margin="0"></Image>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Паста песто" TextColor="#000000" FontSize="14" FontFamily="Jost" Margin="10, 0"></Label>
+                                    <Label Text="45 мин" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="0, 0, 10, 0" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Frame>
+
+        <Frame x:Name="purchasesFrame" BackgroundColor="#FFFFFF" Margin="15, 0, 15, 10" CornerRadius="20" WidthRequest="330" HeightRequest="190">
+            <StackLayout>
+                <Label Text="Список покупок" TextColor="#000000" FontSize="14" FontFamily="Jost"></Label>
+                <ScrollView Orientation="Vertical">
+                    <StackLayout Orientation="Vertical">
+
+                        <Frame x:Name="purchases1Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -12">
+                                    <Label x:Name="frame1_text1" Text="Морковь: 2 кг" TextColor="#000000"></Label>
+                                    <Label x:Name="frame1_text2" Text="Для квашенной капусты" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases2Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame2_text1" Text="Cыр сулугуни: 500 г" TextColor="#000000"></Label>
+                                    <Label x:Name="frame2_text2" Text="Для пиццы" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases3Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame3_text1" Text="Кока-кола зеро: 3 л" TextColor="#000000"></Label>
+                                    <Label x:Name="frame3_text2" Text="Просто пить" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Frame>
+
+        </StackLayout>
+    
+    </ContentPage.Content>
+
+</ContentPage>
+

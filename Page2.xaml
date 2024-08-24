@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.Page2">
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" BackgroundColor="#D3E4BF" Margin="0">
+
+            <Frame BackgroundColor="#FFFFFF" Margin="15, 30, 15, 15" CornerRadius="20" WidthRequest="330" >
+                <StackLayout>
+                    <Label Text="Название продукта:" TextColor="#000000" FontSize="16" Margin="10, 10, 10, 0"></Label>
+                    <Entry x:Name="Purchase" BackgroundColor= "white" HeightRequest="40" Margin="10, 0, 10, 20" TextColor="#5A5C59" FontSize="16"></Entry>
+
+                    <Label Text="Срок годности:" TextColor="#000000" FontSize="16" Margin="10, 0"></Label>
+                    <DatePicker x:Name="myDatePicker" Format="D" BackgroundColor= "white" HeightRequest="40" Margin="10, 0, 10, 20" TextColor="#5A5C59" FontSize="16">
+                        <DatePicker.MinimumDate>01/01/2015</DatePicker.MinimumDate>
+                        <DatePicker.MaximumDate>01/01/2040</DatePicker.MaximumDate>
+                    </DatePicker>
+
+                    <Label Text="Тип продукта:" TextColor="#000000" FontSize="16" Margin="10, 0"></Label>
+                    <Picker x:Name="picker_type" BackgroundColor= "white" HeightRequest="40" Margin="10, 0, 10, 20" TextColor="#5A5C59" FontSize="16">
+                        <Picker.Items>
+                            <x:String>Овощи</x:String>
+                            <x:String>Фрукты</x:String>
+                            <x:String>Мясо и птица</x:String>
+                            <x:String>Рыба и морепродукты</x:String>
+                            <x:String>Молочные продукты</x:String>
+                            <x:String>Хлеб и выпечка</x:String>
+                            <x:String>Напитки</x:String>
+                            <x:String>Замороженные продукты</x:String>
+                            <x:String>Бакалея</x:String>
+                            <x:String>Сладости</x:String>
+                            <x:String>Специи, приправы, соусы</x:String>
+                            <x:String>Крупы и макароны</x:String>
+                            <x:String>Чай и кофе</x:String>
+                            <x:String>Алкоголь</x:String>
+                            <x:String>Детское питание</x:String>
+                            <x:String>Полуфабрикаты</x:String>
+                            <x:String>Другое</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label Text="Место хранения:" TextColor="#000000" FontSize="16" Margin="10, 0"></Label>
+                    <Picker x:Name="picker_place" BackgroundColor= "white" HeightRequest="40" Margin="10, 0, 10, 20" TextColor="#5A5C59" FontSize="16">
+                        <Picker.Items>
+                            <x:String>Холодильник</x:String>
+                            <x:String>Морозильная камера</x:String>
+                            <x:String>Кладовая</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="addPurchaseFrame" BackgroundColor="#9AC16A" Margin="15, 0, 15, 15" CornerRadius="20"  HeightRequest="20">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddPurchase}" />
+                </Frame.GestureRecognizers>
+                <Label Text="Добавить продукт" TextColor="White" HorizontalOptions="Center" FontSize="16"></Label>
+            </Frame>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

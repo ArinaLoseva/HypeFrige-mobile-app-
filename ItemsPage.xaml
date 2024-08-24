@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:App1.ViewModels"  
+             xmlns:model="clr-namespace:App1.Models"  
+             x:Name="BrowseItemsPage"
+             Shell.NavBarIsVisible="False">
+    
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <StackLayout Orientation="Vertical" BackgroundColor="#D3E4BF" Margin="0">
+
+                <StackLayout Orientation="Horizontal" Margin="-3">
+                    <Label Text="HypeFridge" TextColor="#375C09" FontSize="16" FontFamily="Jost" FontAttributes="Bold" Margin="30, 20, 0, 10 "></Label>
+                    <Image x:Name="filterImage" Source="https://i.ibb.co/XJKsXHL/filter.png" WidthRequest="35" HeightRequest="35" Margin="165, 13, 0, 8">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="accountImage" Source="https://i.ibb.co/qyJ7zrt/account.png" WidthRequest="35" HeightRequest="35" Margin="4, 13, 0, 8">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AccountClicked}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+
+                <Frame x:Name="filterFrame" BackgroundColor="#9AC16A" Margin="15, 0, 15, 5" CornerRadius="20" WidthRequest="330" IsVisible="{Binding IsFilterMenuVisible}">
+                    <StackLayout Grid.Row="1" IsVisible="{Binding IsFilterMenuVisible}">
+                    <BindableLayout.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Сортировать по алфавиту</x:String>
+                            <x:String>Сортировать по сроку годности</x:String>
+                            <x:String>Сортировать по виду продукта</x:String>
+                        </x:Array>
+                    </BindableLayout.ItemsSource>
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="16, 12">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.FilterByCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}" CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+                                    <Label Text="{Binding .}" TextColor="#EDEDED" FontSize="14" FontFamily="Jost"/>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                </Frame>
+
+
+                <Frame x:Name="fridgeFrame" BackgroundColor="#FFFFFF" Margin="15, 0, 15, 5" CornerRadius="20" WidthRequest="330" >
+                    <StackLayout Padding="0">
+                        <Label Text="Ваш холодильник:" TextColor="#000000" FontSize="14" FontFamily="Jost"></Label>
+
+                        <StackLayout x:Name="fridgeStackLayout" Orientation="Vertical" Padding="0">
+
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+
+                            <StackLayout Padding="0" Margin="0" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="foodNameLabel1" Text="Молоко 2,5%" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="foodDateLabel1" Text="12.05.2024" TextColor="#FF0000" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="foodNameLabel2" Text="Тесто слоенное бездрожевое" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="foodDateLabel2" Text="14.05.2024" TextColor="#FF6107" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="foodNameLabel3" Text="Чебупели" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="foodDateLabel3" Text="18.05.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="foodNameLabel4" Text="Сыр с плесенью" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="foodDateLabel4" Text="18.05.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <Image x:Name="addImage1" Source="https://i.ibb.co/HY4pWrN/add.png" WidthRequest="23" HeightRequest="23" Margin="0, 10, -5, -5" HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding FridgeClick}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </StackLayout>
+                </Frame> 
+
+                <Frame x:Name="freezerFrame" BackgroundColor="#FFFFFF" Margin="15, 0, 15, 5" CornerRadius="20" WidthRequest="330" >
+                    <StackLayout>
+                        <Label Text="Ваша морозильная камера:" TextColor="#000000" FontSize="14" FontFamily="Jost"></Label>
+
+                        <StackLayout x:Name="freezerStackLayout" Orientation="Vertical" Padding="0">
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+
+                            <StackLayout Padding="0" Margin="0" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="freezerFoodNameLabel1" Text="Молоко 2,5%" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="freezerFoodDateLabel1" Text="12.05.2024" TextColor="#FF0000" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="freezerFoodNameLabel2" Text="Тесто слоенное бездрожевое" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="freezerFoodDateLabel2" Text="14.05.2024" TextColor="#FF6107" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="freezerFoodNameLabel3" Text="Чебупели" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="freezerFoodDateLabel3" Text="18.05.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <Image x:Name="addImage2" Source="https://i.ibb.co/HY4pWrN/add.png" WidthRequest="23" HeightRequest="23" Margin="0, 10, -5, -5" HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding FridgeClick}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame x:Name="pantryFrame" BackgroundColor="#FFFFFF" Margin="15, 0, 15, 10" CornerRadius="20" WidthRequest="330" >
+                    <StackLayout>
+                        <Label Text="Ваша кладовая:" TextColor="#000000" FontSize="14" FontFamily="Jost"></Label>
+
+                        <StackLayout x:Name="pantryStackLayout" Orientation="Vertical" Padding="0">
+                            <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+
+                            <StackLayout Padding="0" Margin="0" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="pantryFoodNameLabel1" Text="Молоко 2,5%" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="pantryFoodDateLabel1" Text="12.05.2024" TextColor="#FF0000" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="pantryFoodNameLabel2" Text="Тесто слоенное бездрожевое" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="pantryFoodDateLabel2" Text="14.05.2024" TextColor="#FF6107" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="pantryFoodNameLabel3" Text="Чебупели" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="pantryFoodDateLabel3" Text="18.05.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="pantryFoodNameLabel4" Text="Макароны для лазаньи" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="pantryFoodDateLabel4" Text="25.07.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                            <StackLayout Padding="0" Margin="0, 5" WidthRequest="330" HeightRequest="30" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="https://i.ibb.co/vLsyrsP/food-icon.png" WidthRequest="21" HeightRequest="21"></Image>
+                                    <Label x:Name="pantryFoodNameLabel5" Text="Рис круглозерный" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5"></Label>
+                                    <Label x:Name="pantryFoodDateLabel5" Text="30.10.2024" TextColor="#5A5C59" FontSize="14" FontFamily="Jost" Margin="5" HorizontalOptions="EndAndExpand"></Label>
+                                </StackLayout>
+                                <BoxView Color="#EDEDED" WidthRequest="330" HeightRequest="1"></BoxView>
+                            </StackLayout>
+
+                        </StackLayout>
+
+                        <Image x:Name="addImage3" Source="https://i.ibb.co/HY4pWrN/add.png" WidthRequest="23" HeightRequest="23" Margin="0, 10, -5, -5" HorizontalOptions="EndAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding FridgeClick}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                    </StackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

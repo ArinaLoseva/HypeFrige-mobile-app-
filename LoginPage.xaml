@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical" BackgroundColor="#D3E4BF" Margin="0">
+
+            <StackLayout Orientation="Horizontal" Margin="-3">
+                <Label Text="HypeFridge" TextColor="#375C09" FontSize="16" FontFamily="Jost" FontAttributes="Bold" Margin="30, 20, 0, 10"></Label>
+                <Image x:Name="accountImage" Source="https://i.ibb.co/qyJ7zrt/account.png" WidthRequest="35" HeightRequest="35" Margin="210, 13, 0, 8">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AccountClicked}" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+
+            <Frame BackgroundColor="#FFFFFF" Margin="15, 0, 15, 15" CornerRadius="20" WidthRequest="330" >
+                <StackLayout>
+                    
+                    <!--<Label Text="Список покупок" TextColor="#000000" FontSize="14" FontFamily="Jost"></Label>-->
+
+                    <ScrollView x:Name="notesScrollView" Orientation="Vertical">
+                        <StackLayout Orientation="Vertical">
+
+                        <Frame x:Name="purchases1Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -12">
+                                    <Label x:Name="frame1_text1" Text="Морковь: 2 кг" TextColor="#000000"></Label>
+                                    <Label x:Name="frame1_text2" Text="Для квашенной капусты" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases2Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame2_text1" Text="Cыр сулугуни: 500 г" TextColor="#000000"></Label>
+                                    <Label x:Name="frame2_text2" Text="Для пиццы" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases3Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame3_text1" Text="Кока-кола зеро: 3 л" TextColor="#000000"></Label>
+                                    <Label x:Name="frame3_text2" Text="Просто пить" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases4Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -12">
+                                    <Label x:Name="frame4_text1" Text="Морковь: 2 кг" TextColor="#000000"></Label>
+                                    <Label x:Name="frame4_text2" Text="Для квашенной капусты" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases5Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame5_text1" Text="Cыр сулугуни: 500 г" TextColor="#000000"></Label>
+                                    <Label x:Name="frame5_text2" Text="Для пиццы" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases6Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame6_text1" Text="Кока-кола зеро: 3 л" TextColor="#000000"></Label>
+                                    <Label x:Name="frame6_text2" Text="Просто пить" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases7Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame7_text1" Text="Кока-кола зеро: 3 л" TextColor="#000000"></Label>
+                                    <Label x:Name="frame7_text2" Text="Просто пить" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases8Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -12">
+                                    <Label x:Name="frame8_text1" Text="Морковь: 2 кг" TextColor="#000000"></Label>
+                                    <Label x:Name="frame8_text2" Text="Для квашенной капусты" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases9Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame9_text1" Text="Cыр сулугуни: 500 г" TextColor="#000000"></Label>
+                                    <Label x:Name="frame9_text2" Text="Для пиццы" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame x:Name="purchases10Frame" BackgroundColor="#EBF3E1" Margin="0, 2" CornerRadius="25" HeightRequest="20">
+                            <StackLayout Orientation="Horizontal">
+
+                                <Image Source="https://i.ibb.co/5xxK75y/uncheck.png" WidthRequest="23" Margin="0">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToggleCheckboxCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+
+                                <StackLayout Orientation="Vertical" Margin="10, -10">
+                                    <Label x:Name="frame10_text1" Text="Кока-кола зеро: 3 л" TextColor="#000000"></Label>
+                                    <Label x:Name="frame10_text2" Text="Просто пить" TextColor="#5A5C59"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Frame>
+
+                        </StackLayout>
+                    </ScrollView>
+
+                    <!--<Image x:Name="addImage1" Source="https://i.ibb.co/HY4pWrN/add.png" WidthRequest="23" HeightRequest="23" Margin="0, 10, -5, -5" HorizontalOptions="EndAndExpand"></Image>-->
+                    <Frame x:Name="addPurchaseFrame" BackgroundColor="#9AC16A" Margin="0, 8, 0, -8" CornerRadius="20"  HeightRequest="20">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OnAddClicked}" />
+                        </Frame.GestureRecognizers>
+                        <Label Text="Добавить покупку" TextColor="White" HorizontalOptions="Center" FontSize="16"></Label>
+                    </Frame>
+
+                </StackLayout>
+            </Frame>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+
+</ContentPage>
